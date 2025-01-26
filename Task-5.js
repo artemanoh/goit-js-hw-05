@@ -1,46 +1,48 @@
 class Car {
-    static getSpecs(car) {
-        console.log(`maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`);
-    }
+  static getSpecs(car) {
+    console.log(
+      `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`
+    );
+  }
 
-    constructor({ maxSpeed, price }) {
-        this.speed = 0;
-        this.price = price;
-        this.maxSpeed = maxSpeed;
-        this.isOn = false;
-        this.distance = 0;
-    }
+  constructor({ maxSpeed, price }) {
+    this.speed = 0;
+    this.price = price;
+    this.maxSpeed = maxSpeed;
+    this.isOn = false;
+    this.distance = 0;
+  }
 
-    get price() {
-        return this._price;
-    }
+  get price() {
+    return this._price;
+  }
 
-    set price(newPrice) {
-        this._price = newPrice;
-    }
+  set price(newPrice) {
+    this._price = newPrice;
+  }
 
-    turnOn() {
-        this.isOn = true;
-    }
+  turnOn() {
+    this.isOn = true;
+  }
 
-    turnOff() {
-        this.isOn = false;
-        this.speed = 0;
-    }
+  turnOff() {
+    this.isOn = false;
+    this.speed = 0;
+  }
 
-    accelerate(value) {
-        this.speed = Math.min(this.speed + value, this.maxSpeed);
-    }
+  accelerate(value) {
+    this.speed = Math.min(this.speed + value, this.maxSpeed);
+  }
 
-    decelerate(value) {
-        this.speed = Math.max(this.speed - value, 0);
-    }
+  decelerate(value) {
+    this.speed = Math.max(this.speed - value, 0);
+  }
 
-    drive(hours) {
-        if (this.isOn === true) {
-            this.distance += hours * this.speed;
-        }
+  drive(hours) {
+    if (this.isOn === true) {
+      this.distance += hours * this.speed;
     }
+  }
 }
 
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
